@@ -4,7 +4,7 @@ AgentParliament is a framework and application for **debate-based decision makin
 
 This repository contains:
 1. **Next.js Web App**: A visual dashboard running a LangGraph workflow (`@langchain/langgraph` + Google Gemini) to run, visualize, and animate parliament debates.
-2. **Agent Skill**: A modular `SKILL.md` instruction file that enables any AI coding assistant (Claude, Copilot, Antigravity, Cursor, etc.) to run the same debate process natively in your editor.
+2. **Agency Agent Skill**: A structured `SKILL.md` instruction file modeled after the standardized **Agency Agent** template, enabling any AI coding assistant (Claude, Copilot, Antigravity, Cursor, etc.) to run the same debate process natively in your editor.
 
 ---
 
@@ -27,9 +27,9 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ---
 
-## 🧠 Using as a Cross-Editor Agent Skill
+## 🧠 Using as an Agency Agent Skill
 
-You can load AgentParliament directly into your favorite AI code editor to help you think through architectural choices and technical decisions.
+You can load AgentParliament directly into your favorite AI code editor to help you think through architectural choices and technical decisions using the standardized Agency template.
 
 ### For Claude Code / Gemini Antigravity
 The skill is located at `skills/agent-parliament/SKILL.md`. To use it:
