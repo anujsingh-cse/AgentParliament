@@ -1,48 +1,39 @@
 # AgentParliament 🏛️
 
-AgentParliament is a framework and application for **debate-based decision making** using multi-agent workflows. It models technical debates, architectural proposals, library choices, or codebase motions by convening a parliament of 5 specialized developer personas, voting on the motion, and producing a synthesized final resolution by the Speaker of the House.
+AgentParliament is a specialized **AI agent skill** that transforms generic AI coding assistants into a structured, debate-based decision making engine. 
 
-This repository contains:
-1. **Next.js Web App**: A visual dashboard running a LangGraph workflow (`@langchain/langgraph` + Google Gemini) to run, visualize, and animate parliament debates.
-2. **Agency Agent Skill**: A structured `SKILL.md` instruction file modeled after the standardized **Agency Agent** template, enabling any AI coding assistant (Claude, Copilot, Antigravity, Cursor, etc.) to run the same debate process natively in your editor.
+It models technical debates, architectural proposals, library choices, or codebase motions by simulating a parliament of 5 developer personas, voting on the motion, and producing a synthesized final resolution by the Speaker of the House.
 
----
-
-## 🚀 Web App Quickstart
-
-### 1. Install Dependencies
-```bash
-npm install
-```
-
-### 2. Run the Development Server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) to view the application.
-
-### 3. Execution Modes
-- **Demo Mode**: Runs simulated debates for test topics (GraphQL, Microservices, Rust, AI assistants) and heuristic fallbacks for custom inputs. No API key required.
-- **Real Mode**: Connects to the Gemini API (using a provided API key) to run the full, live LangGraph flow.
+This repository is designed as a **pure prompt skill** (similar to the catalog in `msitarzewski/agency-agents`). It requires **no local servers, compilation, or external API keys** to run. The AI assistant uses its native LLM context to execute the skill directly within your editor.
 
 ---
 
-## 🧠 Using as an Agency Agent Skill
+## 👥 The Parliament Personas
 
-You can load AgentParliament directly into your favorite AI code editor to help you think through architectural choices and technical decisions using the standardized Agency template.
+1. **Optimist (🚀 The Visionary)**: Advocates for adoption, development velocity, developer happiness, and competitive advantage.
+2. **Pessimist (🛡️ The Risk Manager)**: Focuses on maintenance debt, hidden costs, complexity, security holes, and failure modes.
+3. **Engineer (⚙️ The Builder)**: Analyzes implementation overhead, tooling, local setup, debugging, and CI/CD.
+4. **Lawyer (⚖️ The Compliance Officer)**: Evaluates licenses, vendor lock-in, data privacy, and intellectual property risks.
+5. **User Advocate (👥 The Customer Voice)**: Reviews latency, UX simplicity, performance, stability, and customer friction.
+6. **Speaker of the House (🗣️ The Synthesizer)**: Consolidates arguments, tallies the votes, and drafts the final resolution and binding mitigations.
 
-### For Claude Code / Gemini Antigravity
-The skill is located at `skills/agent-parliament/SKILL.md`. To use it:
-1. Copy the `skills/agent-parliament` folder into your global or workspace customizations root:
-   - **Global Customizations**: `~/.gemini/config/skills/` (for Antigravity) or `~/.claudecode/config/skills/`
-   - **Workspace Customizations**: `.agents/skills/`
-2. Once loaded, activate it by typing `/agent-parliament` or asking your agent: *"Use the agent-parliament skill to debate: should we use PostgreSQL or MongoDB for our analytics service?"*
+---
 
-### For Cursor / Windsurf / GitHub Copilot
-1. Open Cursor Settings -> Features -> **Rules for AI** (or create a `.cursorrules` / `.github/copilot-instructions.md` file).
-2. Copy the contents of [skills/agent-parliament/SKILL.md](skills/agent-parliament/SKILL.md) and paste them as custom instructions.
-3. In chat, prompt: *"Convene the Agent Parliament: Should we migrate our state management to Zustand?"*
+## 🧠 Installation and Usage
 
-### For ChatGPT / Claude Web Interface
-Simply copy the markdown text from `skills/agent-parliament/SKILL.md` and prepend it to your prompt:
-> *"Using the following system instructions, run a debate on: Should we write our new APIs in Go instead of Node?"*
+### 1. For Claude Code / Gemini Antigravity
+The custom skill is defined in `skills/agent-parliament/`.
+- **Global Customizations**: Copy the `skills/agent-parliament` folder into your global config directory:
+  - `~/.gemini/config/skills/` (for Antigravity)
+  - `~/.claudecode/config/skills/`
+- **Workspace Customizations**: Put it in `.agents/skills/agent-parliament/` in your project workspace.
+- **Activation**: Type `/agent-parliament` in the chat or ask the agent: *"Use the agent-parliament skill to debate: Should we migrate our auth system to Auth0?"*
+
+### 2. For Cursor / Windsurf / VS Code Copilot
+You can use it as a custom instruction or context rule:
+- Create a `.cursorrules` or `.github/copilot-instructions.md` file in the root of your project.
+- Copy the system prompt instructions from [skills/agent-parliament/SKILL.md](skills/agent-parliament/SKILL.md) and paste it into the file.
+- **Activation**: Prompt the assistant in the chat: *"Convene the Agent Parliament on: Should we use Docker for local development?"*
+
+### 3. For ChatGPT / Claude Web Interface
+- Copy the contents of `skills/agent-parliament/SKILL.md` and paste it as the system context or pre-prompt, then ask: *"Convene the debate on: Should we rewrite our data layer in Rust?"*
